@@ -65,11 +65,35 @@ input {
   overflow: auto;
 }
 
+.titleOverlay {
+  position: absolute; 
+  bottom: 5px; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 14px;
+  padding: 20px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: nowrap;
+}
+
 .imageBox {
+  position: relative;
   -webkit-animation: fade-in 1.5s; /* Safari 4+ */
   -moz-animation:    fade-in 1.5s; /* Fx 2+ */
   -o-animation:      fade-in 1.5s; /* Opera 12+ */
   animation:         fade-in 1.5s;
+}
+
+.imageBox:hover .titleOverlay {
+  opacity: 1;
 }
 
 @-webkit-keyframes fade-in {
