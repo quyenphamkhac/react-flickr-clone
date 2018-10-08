@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Link } from "@reach/router";
+
 class Photos extends Component {
     render() {
         const { photos } = this.props;
@@ -11,12 +13,14 @@ class Photos extends Component {
             let title = `${photo.title}`;
 
             return (
-                <div key={id} className="imageBox">
-                    <img src={source} alt={title} className="photoImage"/>
-                    <div className="titleOverlay">
-                        {title}
+                <Link key={id} state={photo} to={`/photo/${id}`} target="_blank">
+                    <div className="imageBox">
+                        <img src={source} alt={title} className="photoImage"/>
+                        <div className="titleOverlay">
+                            {title}
+                        </div>
                     </div>
-                </div>
+                </Link>
             );
         });
 

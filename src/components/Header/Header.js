@@ -5,6 +5,8 @@ import {
     Container
 } from 'semantic-ui-react';
 
+import { Link } from '@reach/router';
+
 import logo from '../../assets/images/logo.png';
 
 class Header extends Component {
@@ -17,8 +19,17 @@ class Header extends Component {
                             <Image size='mini' src={logo} style={{ marginRight: '1.5em' }} />
                             Flickr
                         </Menu.Item>
-                        <Menu.Item as='a'>Explorer</Menu.Item>
-                        <Menu.Item as='a'>Search</Menu.Item>
+                        <Menu.Item>
+                            <Link to="/explorer">
+                                Explorer
+                            </Link>
+                        </Menu.Item>
+                        
+                        <Menu.Item>
+                            <Link to="/search">
+                                Search
+                            </Link>
+                        </Menu.Item>
                     </Container>
                 </Menu>
             </div>
