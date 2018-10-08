@@ -12,7 +12,7 @@ class PhotoReview extends Component {
             const photoSrc = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
             imageRender = <Image fluid src={photoSrc} />
         } else {
-            imageRender = <Redirect to="/explorer" />
+            imageRender = <Redirect to="/" />
         }
         
         return (

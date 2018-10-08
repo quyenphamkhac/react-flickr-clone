@@ -20,7 +20,7 @@ class Header extends Component {
                             Flickr
                         </Menu.Item>
                         <Menu.Item>
-                            <Link to="/explorer">
+                            <Link to="/">
                                 Explorer
                             </Link>
                         </Menu.Item>

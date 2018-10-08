@@ -8,7 +8,7 @@ import PhotoSearch from '../components/PhotoSearch/PhotoSearch';
 import PhotoReview from '../components/PhotoReview/PhotoReview';
 
 //reach router
-import { Router, Redirect } from '@reach/router';
+import { Router } from '@reach/router';
 
 class MainApp extends Component {
     render() {
@@ -17,8 +17,7 @@ class MainApp extends Component {
                 <Header />
                 <Container style={{ marginTop: '6em' }}>
                     <Router>
-                        <Redirect from="/" to="/explorer" />
-                        <PhotoExplorer path="/explorer" />
+                        <PhotoExplorer path="/" />
                         <PhotoSearch path="/search" />
                         <PhotoReview path="/photo/:photoId" />
                     </Router>
