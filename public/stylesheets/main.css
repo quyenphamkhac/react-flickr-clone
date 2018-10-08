@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   height: 100%;
 }
 
@@ -115,6 +115,23 @@ footer {
   width: 18px;
   margin: 0 3px -3px 0;
 }
+
+
+/* scrollbar style */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #727272;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #888; 
+}
+/* end scrollbar style */
 
 @media screen and (min-width: 600px) {
   .searchInput {
