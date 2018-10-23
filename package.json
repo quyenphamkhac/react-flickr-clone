@@ -7,8 +7,12 @@
     "axios": "^0.18.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
     "react-scripts": "2.0.4",
     "react-waypoint": "^8.0.3",
+    "redux": "^4.0.1",
+    "redux-observable": "^1.0.0",
+    "rxjs": "^6.3.3",
     "semantic-ui-react": "^0.82.5"
   },
   "scripts": {
@@ -25,5 +29,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "redux-devtools": "^3.4.1"
+  }
 }

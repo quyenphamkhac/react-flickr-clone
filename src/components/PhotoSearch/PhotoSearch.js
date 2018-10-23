@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { Header, Icon, Divider, Form } from 'semantic-ui-react';
-import axios from 'axios';
 
-//api config
-import { baseUrl, methods, apiKey } from '../../api/api';
+//redux action creators
+import { searchByTag, clearSearch } from '../../redux/modules/search';
+
+//redux connector
+import { connect } from 'react-redux';
 
 import Photos from '../Photos/Photos';
-
 
 class PhotoSearch extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            photos: [],
             search: '',
         }
     }
@@ -24,25 +24,16 @@ class PhotoSearch extends Component {
 
     searchFormSubmitHandler = () => {
         const { search } = this.state;
-
         if(search) {
-            axios.get(`${baseUrl}?api_key=${apiKey}&method=${methods.FLICKR_SEARCH}&format=json&nojsoncallback=1&&per_page=50&page=1&text=${search}`)
-                .then(response => {
-                    if(response.status === 200 && response.data) {
-                        const { photo } = response.data.photos;
-                        this.setState({ photos: photo });
-                    }
-                })
-                .catch(error => {
-                    //error hanler
-                });
+            this.props.searchByTag(search);
         } else {
-            this.setState({ photos: [] });
+            this.props.clearSearch();
         }
     }
 
     render() {
-        const { photos, search } = this.state;
+        const { search } = this.state;
+        const { photos } = this.props;
         return (
             <React.Fragment>
                 <Header as='h2' icon>
@@ -71,4 +62,15 @@ class PhotoSearch extends Component {
     }
 }
 
-export default PhotoSearch;
+const mapStateToProps = (state) => {
+  return {
+    photos: state.search.searchByTag,
+  }
+}
+
+const mapDispatchToProps = {
+  searchByTag,
+  clearSearch
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoSearch);
